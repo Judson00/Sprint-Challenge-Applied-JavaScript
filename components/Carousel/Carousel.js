@@ -18,37 +18,68 @@
   </div>
 */
 
-function carouselCreator(){
-  //create elements
-  const carouselContainer = document.createElement('div');
-  const leftButton = document.createElement('div');
-  const mountainImage = document.createElement('img');
-  const computerImage = document.createElement('img');
-  const treesImage = document.createElement('img');
-  const turntableImage = document.createElement('img');
-  const rightButton = document.createElement('div');
+function carouselCreator () {
+  //createElements
+  let carouselDiv = document.createElement('div')
+  let leftButton = document.createElement('div')
+  let mountainImage = document.createElement('img')
+  let computerImage = document.createElement('img')
+  let treesImage = document.createElement('img')
+  let turntableImage = document.createElement('img')
+  let rightButton = document.createElement('div')
 
   //add classes
-  carouselContainer.classList.add('carousel');
-  leftButton.classList.add('left-button');
-  rightButton.classList.add('right-button');
+  carouselDiv.classList.add('carousel')
+  leftButton.classList.add('left-button')
+  leftButton.classList.add('left-button')
 
   //add content
-  mountainImage.src = '../assets/carousel/mountains.jpeg';
-  computerImage.src = '../assets/carousel/computer.jpeg';
-  treesImage.src = '../assets/carousel/trees.jpeg';
-  turntableImage.src = '../assets/carousel/turntable.jpeg';
+  mountainImage.src = './assets/carousel/mountains.jpeg'
+  computerImage.src = './assets/carousel/computer.jpeg'
+  treesImage.src = './assets/carousel/trees.jpeg'
+  turntableImage.src = './assets/carousel/turntable.jpeg'
+  
+  let imageArray = [mountainImage,computerImage,treesImage,turntableImage]
+  
+  imageIndex = 0;
+  
+  moveCarousel = (num) =>{
+  
+   for(const images of imageArray){
+      images.style = 'display:none';
+   }
+   
+    imageIndex += num;
+  
+    if (imageIndex > imageArray.length - 1){
+      imageIndex = 0
+    }
+    if(imageIndex < 0 ){
+      imageIndex = imageArray.length -1;
+    }
+    else{
+      imageArray[imageIndex].style = 'display:block'
+    }
+  
+  }
+  
+  leftButton.addEventListener('click', () => {
+    moveCarousel(-1);
+  });
+  
+  rightButton.addEventListener('click', () =>{
+    moveCarousel(1);
+  })
 
-  //append children
-  carouselContainer.appendChild(leftButton);
-  carouselContainer.appendChild(rightButton);
-  carouselContainer.appendChild(mountainImage);
-  carouselContainer.appendChild(computerImage);
-  carouselContainer.appendChild(treesImage);
-  carouselContainer.appendChild(turntableImage);
+  carouselDiv.appendChild(leftButton)
+  carouselDiv.appendChild(mountainImage)
+  carouselDiv.appendChild(computerImage)
+  carouselDiv.appendChild(treesImage)
+  carouselDiv.appendChild(turntableImage)
+  carouselDiv.appendChild(rightButton)
 
-  return carouselContainer;
+  return carouselDiv;
 }
-const parentCarousel = document.querySelector('.carousel-container');
-parentCarousel.appendChild(carouselCreator());
 
+const carouselParent = document.querySelector('.carousel-container');
+carouselParent.appendChild(carouselCreator());
