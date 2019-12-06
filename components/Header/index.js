@@ -21,6 +21,11 @@ function Header() {
   date.classList.add('date');
   temp.classList.add('temp');
 
+  //add content
+  date.textContent = 'Smarch 28, 2019';
+  headerOne.textContent = 'Lambda Times';
+  temp.textContent = '98';
+
   //append the children
   headerContainer.appendChild(date);
   headerContainer.appendChild(headerOne);
