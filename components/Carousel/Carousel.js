@@ -23,6 +23,8 @@ function carouselCreator () {
   let carouselDiv = document.createElement('div')
   let leftButton = document.createElement('div')
   let mountainImage = document.createElement('img')
+    mountainImage.style = 'position: relative';
+    mountainImage.style = 'z-index:-1';
   let computerImage = document.createElement('img')
   let treesImage = document.createElement('img')
   let turntableImage = document.createElement('img')
@@ -58,7 +60,8 @@ function carouselCreator () {
       imageIndex = imageArray.length -1;
     }
     else{
-      imageArray[imageIndex].style = 'display:block'
+       imageArray[imageIndex].style = 'display:block; z-index:-1';
+       
     }
   
   }
