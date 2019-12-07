@@ -31,7 +31,7 @@ function carouselCreator () {
   //add classes
   carouselDiv.classList.add('carousel')
   leftButton.classList.add('left-button')
-  leftButton.classList.add('left-button')
+  rightButton.classList.add('right-button')
 
   //add content
   mountainImage.src = './assets/carousel/mountains.jpeg'
@@ -41,9 +41,9 @@ function carouselCreator () {
   
   let imageArray = [mountainImage,computerImage,treesImage,turntableImage]
   
-  imageIndex = 0;
+  let imageIndex = 0;
   
-  moveCarousel = (num) =>{
+  const moveCarousel = (num) =>{
   
    for(const images of imageArray){
       images.style = 'display:none';
